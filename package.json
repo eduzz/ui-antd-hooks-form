@@ -1,0 +1,61 @@
+{
+  "name": "@eduzz/ui-antd-hooks-form",
+  "description": "Eduzz Hooks: Antd React Hooks Form",
+  "version": "0.0.1",
+  "keywords": [
+    "antd",
+    "raect-hooks-forms",
+    "react",
+    "eduzz"
+  ],
+  "main": "./index.js",
+  "types": "./index.d.ts",
+  "author": "Eduzz Team",
+  "license": "MIT",
+  "private": false,
+  "homepage": "https://github.com/eduzz/ui-antd-hooks-form",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/eduzz/ui-antd-hooks-form"
+  },
+  "bugs": {
+    "url": "https://github.com/eduzz/ui-antd-hooks-form/issues"
+  },
+  "scripts": {
+    "clean": "git add . && git clean -fdx . -e node_modules",
+    "prebuild": "yarn clean && yarn lint",
+    "build": "yarn tsc -p tsconfig.json",
+    "lint": "eslint . --ext js,ts,tsx"
+  },
+  "dependencies": {
+    "@hookform/error-message": "^2.0.1",
+    "@hookform/resolvers": "^3",
+    "antd": "^5",
+    "react-hook-form": "^7",
+    "yup": "^1"
+  },
+  "devDependencies": {
+    "@eduzz/eslint-config": "^0.0.3",
+    "@types/lodash-es": "^4",
+    "@types/react": "^18.2.14",
+    "@types/react-dom": "^18.2.6",
+    "@typescript-eslint/eslint-plugin": "^5.61.0",
+    "@typescript-eslint/parser": "^5.61.0",
+    "@vitejs/plugin-react-swc": "^3.3.2",
+    "eslint": "^8.44.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-eslint-plugin": "^5.1.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.32.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-unused-imports": "^2.0.0",
+    "prettier": "^2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "typescript": "^5.1.6",
+    "vite": "^4.4.2",
+    "vite-plugin-css-injected-by-js": "^3.2.0",
+    "vite-plugin-dts": "^3.2.0"
+  }
+}
