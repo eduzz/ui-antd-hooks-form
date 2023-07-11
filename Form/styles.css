@@ -1,0 +1,17 @@
+/* fix forms */
+.ant-form-vertical .ant-form-item-label,
+.ant-col-24.ant-form-item-label {
+  padding-bottom: 2px;
+}
+
+.ant-col-24.ant-form-item-label>label {
+  height: auto;
+}
+
+.ant-select {
+  width: 100%;
+}
+
+.ant-space {
+  display: flex;
+}
