@@ -1,6 +1,7 @@
 import '../utils/dayjsConfig';
 
-import { forwardRef, useCallback, useMemo, ComponentType } from 'react';
+import { forwardRef, useCallback, useMemo } from 'react';
+import { FieldValues } from 'react-hook-form';
 
 import { TimePicker as AndtTimePicker, TimePickerProps as AntdTimePickerProps } from 'antd';
 
@@ -9,8 +10,8 @@ import dayjs from 'dayjs';
 
 import withForm, { WithFormProps } from '../Form/withForm';
 
-export type TimePickerProps = Omit<AntdTimePickerProps, 'value' | 'onChange'> &
-  WithFormProps<any> & {
+export type TimePickerProps<V extends FieldValues> = Omit<AntdTimePickerProps, 'value' | 'onChange'> &
+  WithFormProps<any, V> & {
     minDate?: Date;
     maxDate?: Date;
     value?: Date;
@@ -47,4 +48,8 @@ const TimePicker = forwardRef<any, any>(({ value, format, showTime, minDate, max
   );
 });
 
-export default withForm(TimePicker as any) as ComponentType<TimePickerProps>;
+export interface TimePickerComponent {
+  <V extends FieldValues>(props: TimePickerProps<V>): JSX.Element;
+}
+
+export default withForm(TimePicker as any) as TimePickerComponent;

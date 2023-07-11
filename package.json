@@ -1,7 +1,7 @@
 {
   "name": "@eduzz/ui-antd-hooks-form",
   "description": "Eduzz Hooks: Antd React Hooks Form",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "keywords": [
     "antd",
     "raect-hooks-forms",
@@ -22,10 +22,11 @@
     "url": "https://github.com/eduzz/ui-antd-hooks-form/issues"
   },
   "scripts": {
+    "predev": "yarn clean",
+    "dev": "yarn vite",
     "clean": "git add . && git clean -fdx . -e node_modules",
-    "prebuild": "yarn clean && yarn lint",
-    "build": "yarn vite build",
-    "lint": "eslint . --ext js,ts,tsx"
+    "prebuild": "yarn clean",
+    "build": "yarn vite build"
   },
   "dependencies": {
     "@hookform/error-message": "^2.0.1",
@@ -36,6 +37,7 @@
   },
   "devDependencies": {
     "@eduzz/eslint-config": "^0.0.3",
+    "@eduzz/ui-antd-theme": "^0.0.4",
     "@types/lodash-es": "^4",
     "@types/react": "^18.2.14",
     "@types/react-dom": "^18.2.6",

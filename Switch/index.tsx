@@ -1,4 +1,5 @@
 import { ReactNode, forwardRef, useCallback } from 'react';
+import { FieldValues } from 'react-hook-form';
 
 import { Switch as AndtSwitch, SwitchProps as AntdSwitchProps, Typography } from 'antd';
 import type { SwitchChangeEventHandler } from 'antd/es/switch/index';
@@ -6,7 +7,9 @@ import type { SwitchChangeEventHandler } from 'antd/es/switch/index';
 import styles from './styles.module.css';
 import withForm, { WithFormProps } from '../Form/withForm';
 
-export interface SwitchProps extends Omit<AntdSwitchProps, 'onChange' | 'value'>, WithFormProps<HTMLInputElement> {
+export interface SwitchProps<V extends FieldValues = FieldValues>
+  extends Omit<AntdSwitchProps, 'onChange' | 'value'>,
+    WithFormProps<HTMLInputElement, V> {
   value?: any;
   onChange?: (value: any) => void;
   checkedValue?: any;
@@ -32,4 +35,8 @@ const Switch = forwardRef<HTMLInputElement, SwitchProps>(
   }
 );
 
-export default withForm(Switch, { disableMargin: true });
+export interface SwitchComponent {
+  <V extends FieldValues>(props: SwitchProps<V>): JSX.Element;
+}
+
+export default withForm(Switch, { disableMargin: true }) as SwitchComponent;

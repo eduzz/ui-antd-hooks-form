@@ -5,24 +5,18 @@
 
 Implementação padrão do **react-hook-form** para validação de formulário com AntD.
 
-### Instalação
+## Instalação
 
 ```bash
 yarn add @eduzz/ui-antd-hooks-form
 ```
 
-### Técnologias
+## Tecnologias
 
 - [react-hook-form](https://react-hook-form.com)
 - [yup](https://github.com/jquense/yup): Schema de validação
 
-### Importação
-
-```js
-import useForm from '@eduzz/ui-antd-hooks-form/useForm';
-```
-
-### Como usar
+## Como usar
 
 > Não é necessário o register de cada componente quando o **Form** componente é instanciado.
 
@@ -55,7 +49,7 @@ const onSubmit = useCallback((data: FormModel<typeof form>) => console.log({data
 </Form>
 ```
 
-### Parametros
+## Parametros
 
 O único parametro especifico é o validationSchema, o resto é configuração padrão do [react-hook-form](https://react-hook-form.com/api/useform).
 
@@ -63,3 +57,25 @@ O único parametro especifico é o validationSchema, o resto é configuração p
 | ---------------- | ---------- | ----------- | -------------------------------------- |
 | validationSchema | `function` | `true`      | Utilizado para validação do formulário |
 
+## Componentes
+
+- [Input](https://github.com/eduzz/ui-hooks/blob/master/Input/index.md).
+- [Textarea](https://github.com/eduzz/ui-hooks/blob/master/Textarea/index.md).
+- [Select](https://github.com/eduzz/ui-hooks/blob/master/Select/index.md).
+- [DatePicker](https://github.com/eduzz/ui-hooks/blob/master/DatePicker/index.md).
+- [TimePicker](https://github.com/eduzz/ui-hooks/blob/master/TimePicker/index.md).
+- [Checkbox](https://github.com/eduzz/ui-hooks/blob/master/Checkbox/index.md).
+- [Radio](https://github.com/eduzz/ui-hooks/blob/master/Radio/index.md).
+- [Switch](https://github.com/eduzz/ui-hooks/blob/master/Switch/index.md).
+- [ErrorMessage](https://github.com/eduzz/ui-hooks/blob/master/ErrorMessage/index.md).
+- [Form](https://github.com/eduzz/ui-hooks/blob/master/Form/index.md).
+
+## Tipando o nome
+
+Em todos os componentes é possível passar uma interface para poder tipar o name:
+
+```tsx
+<Input<FormModel<typeof form>> label='Name' name='name' />
+<Input<User> label='Name' name='name' />
+<Input<User> label='Name' name='nivel.0.name' />
+```

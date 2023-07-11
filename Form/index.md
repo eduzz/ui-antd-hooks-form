@@ -2,17 +2,17 @@
 
 Componente de formulário de alto desempenho com gerenciamento de escopo de dados.
 
-### Importação
+## Importação
 
 ```js
 import Form from '@eduzz/ui-antd-hooks-form/Form';
 ```
 
-### Exemplo
+## Exemplo
 
 Exemplo de uso [aqui](/houston/forms/example).
 
-### Contexto interno
+## Contexto interno
 
 Utilizado internamente no componente `<Form />`. Recomendado o uso apenas para compartilhar o estado do formulário com os componentes filhos.
 

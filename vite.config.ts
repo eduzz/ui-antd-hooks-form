@@ -1,3 +1,5 @@
+import path from 'path';
+
 import react from '@vitejs/plugin-react-swc';
 import { defineConfig } from 'vite';
 import cssInjectedByJsPlugin from 'vite-plugin-css-injected-by-js';
@@ -7,6 +9,7 @@ import dts from 'vite-plugin-dts';
 export default defineConfig({
   build: {
     outDir: '.',
+    cssCodeSplit: true,
     sourcemap: true,
     lib: {
       entry: './index.tsx',
@@ -15,22 +18,17 @@ export default defineConfig({
       fileName: format => `ui-antd-hooks-form.${format}.js`
     },
     rollupOptions: {
-      external: [/node_modules/],
+      external: id => !id.startsWith('.') && !path.isAbsolute(id),
       output: {
         preserveModules: true,
         entryFileNames: ({ name: fileName }) => `${fileName}.js`,
         exports: 'named'
-      },
-      plugins: [
-        {
-          name: 'prado',
-          transform(code, id) {
-            console.log({ id, code });
-            return undefined;
-          }
-        }
-      ]
+      }
     }
   },
-  plugins: [react(), cssInjectedByJsPlugin({ topExecutionPriority: true }), dts({ copyDtsFiles: true })]
+  plugins: [
+    react(),
+    cssInjectedByJsPlugin({ topExecutionPriority: true, relativeCSSInjection: true }),
+    dts({ copyDtsFiles: true })
+  ]
 });

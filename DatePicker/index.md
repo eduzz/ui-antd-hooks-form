@@ -3,7 +3,7 @@
 [Datepicker do Antd](https://ant.design/components/date-picker) com a
 configuração do [react-form-hook](https://react-hook-form.com).
 
-### Importação
+## Importação
 
 ```js
 import DatePicker from '@eduzz/ui-antd-hooks-form/DatePicker';

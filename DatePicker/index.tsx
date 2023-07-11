@@ -1,6 +1,7 @@
 import '../utils/dayjsConfig';
 
-import { forwardRef, useRef, useCallback, useMemo, ComponentType, KeyboardEvent } from 'react';
+import { forwardRef, useRef, useCallback, useMemo, KeyboardEvent } from 'react';
+import { FieldValues } from 'react-hook-form';
 
 import { DatePicker as AndtDatePicker, DatePickerProps as AntdDatePickerProps } from 'antd';
 
@@ -10,8 +11,8 @@ import dayjs from 'dayjs';
 import withForm, { WithFormProps } from '../Form/withForm';
 import dateMask from '../masks/date';
 
-export type DatePickerProps = Omit<AntdDatePickerProps, 'value' | 'onChange'> &
-  WithFormProps<any> & {
+export type DatePickerProps<V extends FieldValues = FieldValues> = Omit<AntdDatePickerProps, 'value' | 'onChange'> &
+  WithFormProps<any, V> & {
     minDate?: Date | null;
     maxDate?: Date | null;
     value?: Date | null;
@@ -81,4 +82,8 @@ const DatePicker = forwardRef<any, any>(
   }
 );
 
-export default withForm(DatePicker as any) as ComponentType<DatePickerProps>;
+export interface DatePickerComponent {
+  <V extends FieldValues>(props: DatePickerProps<V>): JSX.Element;
+}
+
+export default withForm(DatePicker as any) as DatePickerComponent;

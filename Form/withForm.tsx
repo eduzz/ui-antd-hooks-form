@@ -1,11 +1,11 @@
 import { ReactNode, ComponentType, forwardRef } from 'react';
-import { Controller, useFormContext } from 'react-hook-form';
+import { Controller, useFormContext, FieldPath, FieldValues } from 'react-hook-form';
 
 import { Form as AntdForm } from 'antd';
 
-export type WithFormProps<R> = {
+export type WithFormProps<R, V extends FieldValues = FieldValues> = {
   label?: string;
-  name?: string;
+  name?: FieldPath<V>;
   disabled?: boolean;
   _genericRef?: R;
   help?: ReactNode;
@@ -13,7 +13,7 @@ export type WithFormProps<R> = {
 };
 
 const withForm = <P extends WithFormProps<any>>(Component: ComponentType<P>, options?: { disableMargin: boolean }) =>
-  forwardRef<P['_genericRef'], P>(({ name, disabled, label, help, error, ...props }, ref) => {
+  forwardRef<P['_genericRef'], Omit<P, '_genericRef'>>(({ name, disabled, label, help, error, ...props }, ref) => {
     const form = useFormContext();
 
     if (!form || !name) {

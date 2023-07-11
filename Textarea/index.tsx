@@ -1,19 +1,20 @@
 import { RefAttributes, ChangeEvent, ForwardRefExoticComponent, forwardRef, useCallback, FocusEvent } from 'react';
+import { FieldValues } from 'react-hook-form';
 
 import { Input as AntdInput } from 'antd';
 import type { TextAreaProps as AntdTextAreaProps, TextAreaRef } from 'antd/lib/input/TextArea';
 
 import withForm, { WithFormProps } from '../Form/withForm';
 
-export interface TextAreaProps
-  extends Omit<AntdTextAreaProps, 'onChange' | 'onBlur'>,
-    WithFormProps<TextAreaRef>,
+export interface TextareaProps<V extends FieldValues = FieldValues>
+  extends Omit<AntdTextAreaProps, 'onChange' | 'onBlur' | 'name'>,
+    WithFormProps<TextAreaRef, V>,
     RefAttributes<TextAreaRef> {
   onChange?: (value: string | number | null | undefined, event: ChangeEvent<HTMLTextAreaElement>) => any;
   onBlur?: (value: string | number | null | undefined, event: FocusEvent<HTMLTextAreaElement>) => any;
 }
 
-const Textarea: ForwardRefExoticComponent<TextAreaProps> = forwardRef<TextAreaRef, TextAreaProps>(
+const Textarea: ForwardRefExoticComponent<TextareaProps> = forwardRef<TextAreaRef, TextareaProps>(
   ({ value, onChange, onBlur, ...props }, ref) => {
     const handleChange = useCallback(
       (e: ChangeEvent<HTMLTextAreaElement>) => {
@@ -35,4 +36,7 @@ const Textarea: ForwardRefExoticComponent<TextAreaProps> = forwardRef<TextAreaRe
   }
 );
 
-export default withForm(Textarea);
+export interface TextareaComponent {
+  <V extends FieldValues>(props: TextareaProps<V>): JSX.Element;
+}
+export default withForm(Textarea) as TextareaComponent;

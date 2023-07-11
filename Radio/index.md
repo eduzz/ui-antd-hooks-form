@@ -3,13 +3,13 @@
 [Radio do Antd](https://ant.design/components/Radio/) com a
 configuração do [react-form-hook](https://react-hook-form.com).
 
-### Importação
+## Importação
 
 ```js
 import Radio from '@eduzz/ui-antd-hooks-form/Radio';
 ```
 
-### Radio Props
+## Radio Props
 
 Todas as props do Radio do Antd são validos, abaixos as props extras.
 

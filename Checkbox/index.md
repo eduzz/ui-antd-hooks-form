@@ -3,13 +3,13 @@
 [Checkbox do Antd](https://ant.design/components/Checkbox/) com a
 configuração do [react-form-hook](https://react-hook-form.com).
 
-### Importação
+## Importação
 
 ```js
 import Checkbox from '@eduzz/ui-antd-hooks-form/Checkbox';
 ```
 
-### Checkbox Props
+## Checkbox Props
 
 Todas as props do Checkbox do Antd são validos, abaixos as props extras.
 

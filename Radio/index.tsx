@@ -1,11 +1,14 @@
 import { forwardRef, useCallback } from 'react';
+import { FieldValues } from 'react-hook-form';
 
 import { Radio as AndtRadio, RadioProps as AntdRadioProps } from 'antd';
 import type { RadioChangeEvent } from 'antd/es/radio/index';
 
 import withForm, { WithFormProps } from '../Form/withForm';
 
-export interface RadioProps extends Omit<AntdRadioProps, 'onChange' | 'value'>, WithFormProps<HTMLInputElement> {
+export interface RadioProps<V extends FieldValues = FieldValues>
+  extends Omit<AntdRadioProps, 'onChange' | 'value' | 'name'>,
+    WithFormProps<HTMLInputElement, V> {
   value?: any;
   onChange?: (value: any) => void;
   checkedValue?: any;
@@ -24,4 +27,8 @@ const Radio = forwardRef<HTMLInputElement, RadioProps>(({ value, onChange, check
   return <AndtRadio ref={ref} checked={value === checkedValue} {...props} onChange={handleChange} />;
 });
 
-export default withForm(Radio, { disableMargin: true });
+export interface RadioComponent {
+  <V extends FieldValues>(props: RadioProps<V>): JSX.Element;
+}
+
+export default withForm(Radio, { disableMargin: true }) as RadioComponent;

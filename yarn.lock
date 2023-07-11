@@ -76,6 +76,19 @@
   resolved "https://registry.yarnpkg.com/@eduzz/eslint-config/-/eslint-config-0.0.3.tgz#5de434d3f25eaae64d20703a8fe2bbcaaaa21133"
   integrity sha512-Se9tqREVhlVThtn+1Oh0npTnZDTEQZuS58LsPoIrDcltyH1uci6AKgpQNeDSsO4J0e6IRwReKNi8SJNYf4l8Jw==
 
+"@eduzz/ui-antd-theme@^0.0.4":
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/@eduzz/ui-antd-theme/-/ui-antd-theme-0.0.4.tgz#f5e9f4c5b45ce084d7a12a53ac091ebb78569860"
+  integrity sha512-A52o8ElUeiXRLvtCUWO9Qi+q/nO6MqlXRBKKM7WJl8n1BgJucL3E/lgq4bkzqtFx129Z2lAqUV8L3dvG1zayBA==
+  dependencies:
+    "@eduzz/ui-tokens" "^1"
+    antd "^5"
+
+"@eduzz/ui-tokens@^1":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@eduzz/ui-tokens/-/ui-tokens-1.0.0.tgz#da5db932d13930836d060f6ad63ac813914293ba"
+  integrity sha512-ID+t8nb2+ahQRO8IbuwcIhr9rWNKTKTj95zzaW9D6YKrP2J8GHdawlwaccDnPjhd2zP89GU7lgoB31uyZ/kgkQ==
+
 "@emotion/hash@^0.8.0":
   version "0.8.0"
   resolved "https://registry.yarnpkg.com/@emotion/hash/-/hash-0.8.0.tgz#bbbff68978fefdbe68ccb533bc8cbe1d1afb5413"

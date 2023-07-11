@@ -1,13 +1,14 @@
 import { ChangeEvent, forwardRef, useCallback, createElement, FocusEvent, KeyboardEvent } from 'react';
+import { FieldValues } from 'react-hook-form';
 
 import { Input as AntdInput, InputProps as AntdInputProps, InputRef } from 'antd';
 
 import withForm, { WithFormProps } from '../Form/withForm';
 import useMask, { BuildInMasks, MaskAdapter } from '../masks';
 
-export interface InputProps
-  extends Omit<AntdInputProps, 'onChange' | 'onBlur' | 'onPressEnter'>,
-    WithFormProps<InputRef> {
+export interface InputProps<V extends FieldValues = FieldValues>
+  extends Omit<AntdInputProps, 'onChange' | 'onBlur' | 'onPressEnter' | 'name'>,
+    WithFormProps<InputRef, V> {
   password?: boolean;
   mask?: BuildInMasks | MaskAdapter;
   onChange?: (value: string | number | null | undefined, event: ChangeEvent<HTMLInputElement>) => any;
@@ -58,4 +59,8 @@ const Input = forwardRef<InputRef, InputProps>(
   }
 );
 
-export default withForm(Input);
+export interface InputComponent {
+  <V extends FieldValues>(props: InputProps<V>): JSX.Element;
+}
+
+export default withForm(Input) as InputComponent;

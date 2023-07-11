@@ -1,11 +1,14 @@
 import { forwardRef, useCallback } from 'react';
+import { FieldValues } from 'react-hook-form';
 
 import { Checkbox as AndtCheckbox, CheckboxProps as AntdCheckboxProps } from 'antd';
 import type { CheckboxChangeEvent } from 'antd/es/checkbox/index';
 
 import withForm, { WithFormProps } from '../Form/withForm';
 
-export interface CheckboxProps extends Omit<AntdCheckboxProps, 'onChange' | 'value'>, WithFormProps<HTMLInputElement> {
+export interface CheckboxProps<V extends FieldValues = FieldValues>
+  extends Omit<AntdCheckboxProps, 'onChange' | 'value' | 'name'>,
+    WithFormProps<HTMLInputElement, V> {
   value?: any;
   onChange?: (value: any) => void;
   multiple?: boolean;
@@ -37,4 +40,8 @@ const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
   }
 );
 
-export default withForm(Checkbox, { disableMargin: true });
+export interface CheckboxComponent {
+  <V extends FieldValues>(props: CheckboxProps<V>): JSX.Element;
+}
+
+export default withForm(Checkbox, { disableMargin: true }) as CheckboxComponent;

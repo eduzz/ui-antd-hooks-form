@@ -1,3 +1,5 @@
+import './styles.css';
+
 import { ReactNode, useCallback } from 'react';
 import { FieldValues, FormProvider, UseFormReturn } from 'react-hook-form';
 

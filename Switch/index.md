@@ -3,13 +3,13 @@
 [Switch do Antd](https://ant.design/components/Switch/) com a
 configuração do [react-form-hook](https://react-hook-form.com).
 
-### Importação
+## Importação
 
 ```js
 import Switch from '@eduzz/ui-antd-hooks-form/Switch';
 ```
 
-### Switch Props
+## Switch Props
 
 Todas as props do Switch do Antd são validos, abaixos as props extras.
 
