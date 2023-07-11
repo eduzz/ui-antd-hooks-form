@@ -18,11 +18,18 @@ export default defineConfig({
       external: [/node_modules/],
       output: {
         preserveModules: true,
-        preserveModulesRoot: '.',
-        inlineDynamicImports: false,
         entryFileNames: ({ name: fileName }) => `${fileName}.js`,
         exports: 'named'
-      }
+      },
+      plugins: [
+        {
+          name: 'prado',
+          transform(code, id) {
+            console.log({ id, code });
+            return undefined;
+          }
+        }
+      ]
     }
   },
   plugins: [react(), cssInjectedByJsPlugin({ topExecutionPriority: true }), dts({ copyDtsFiles: true })]

@@ -3,14 +3,10 @@ import { ReactNode, forwardRef, useCallback } from 'react';
 import { Switch as AndtSwitch, SwitchProps as AntdSwitchProps, Typography } from 'antd';
 import type { SwitchChangeEventHandler } from 'antd/es/switch/index';
 
-import styled, { StyledProp } from '@eduzz/houston-ui/styled';
-
+import styles from './styles.module.css';
 import withForm, { WithFormProps } from '../Form/withForm';
 
-export interface SwitchProps
-  extends Omit<AntdSwitchProps, 'onChange' | 'value'>,
-    WithFormProps<HTMLInputElement>,
-    StyledProp {
+export interface SwitchProps extends Omit<AntdSwitchProps, 'onChange' | 'value'>, WithFormProps<HTMLInputElement> {
   value?: any;
   onChange?: (value: any) => void;
   checkedValue?: any;
@@ -28,7 +24,7 @@ const Switch = forwardRef<HTMLInputElement, SwitchProps>(
     );
 
     return (
-      <div className={className}>
+      <div className={`${className} ${styles['eduzz-ui-antd-hooks-form-switch']}`}>
         <AndtSwitch ref={ref} checked={value === checkedValue} {...props} onChange={handleChange} />
         <div>{typeof children === 'string' ? <Typography.Text>{children}</Typography.Text> : children}</div>
       </div>
@@ -36,10 +32,4 @@ const Switch = forwardRef<HTMLInputElement, SwitchProps>(
   }
 );
 
-const SwitchStyled = styled(Switch)`
-  display: flex;
-  gap: ${({ theme }) => theme.antd.sizeUnit * 2}px;
-  align-items: flex-start;
-`;
-
-export default withForm(SwitchStyled, { disableMargin: true });
+export default withForm(Switch, { disableMargin: true });

@@ -24,7 +24,7 @@
   "scripts": {
     "clean": "git add . && git clean -fdx . -e node_modules",
     "prebuild": "yarn clean && yarn lint",
-    "build": "yarn tsc -p tsconfig.json",
+    "build": "yarn vite build",
     "lint": "eslint . --ext js,ts,tsx"
   },
   "dependencies": {
