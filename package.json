@@ -1,7 +1,7 @@
 {
   "name": "@eduzz/ui-antd-hooks-form",
   "description": "Eduzz Hooks: Antd React Hooks Form",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "keywords": [
     "antd",
     "raect-hooks-forms",

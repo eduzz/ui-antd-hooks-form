@@ -8,7 +8,7 @@ import SelectComponent from './Select';
 import SwitchComponent from './Switch';
 import TextareaComponent from './Textarea';
 import TimePickerComponent from './TimePicker';
-import useFormHook from './useForm';
+import useFormHook, { useFieldArray as useFieldArrayHook } from './useForm';
 
 export type { FormModel } from './useForm';
 
@@ -24,3 +24,4 @@ export const Textarea = TextareaComponent;
 export const TimePicker = TimePickerComponent;
 
 export const useForm = useFormHook;
+export const useFieldArray = useFieldArrayHook;
