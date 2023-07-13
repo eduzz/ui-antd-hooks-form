@@ -1,3 +1,5 @@
+import './locale';
+
 import CheckboxComponent from './Checkbox';
 import DatePickerComponent from './DatePicker';
 import ErrorMessageComponent from './ErrorMessage';
