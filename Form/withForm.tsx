@@ -48,7 +48,7 @@ const withForm = <P extends WithFormProps<any>>(Component: ComponentType<P>, opt
                 field.onBlur();
                 (props as any)?.onBlur?.(value, e);
               }}
-              disabled={disabled || formState?.isSubmitting}
+              disabled={disabled || formState?.isSubmitting || formState?.isLoading}
               ref={ref}
             />
           </AntdForm.Item>
