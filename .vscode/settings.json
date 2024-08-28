@@ -5,11 +5,13 @@
     "editor.formatOnType": true
   },
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
+    "source.organizeImports": "never",
+    "source.fixAll.eslint": "explicit"
   },
   "editor.formatOnPaste": false,
   "editor.formatOnSave": false,
   "editor.formatOnType": false,
+  "editor.tabSize": 2,
   "editor.quickSuggestions": {
     "strings": true
   },
