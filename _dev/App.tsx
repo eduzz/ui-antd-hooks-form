@@ -3,6 +3,11 @@ import { useCallback, useState } from 'react';
 import { Space, Button } from 'antd';
 
 import { Form, FormModel, Input, Select, useForm } from '..';
+import Checkbox from '../Checkbox';
+import DatePicker from '../DatePicker';
+import Switch from '../Switch';
+import Textarea from '../Textarea';
+import TimePicker from '../TimePicker';
 
 function App() {
   const form = useForm({
@@ -35,6 +40,12 @@ function App() {
       <Input<FormModel<typeof form>> label='Name' name='name' />
       <Input label='Money' name='money' mask='money' />
       <Select<FormModel<typeof form>> label='Options' name='option' options={options} />
+      <TimePicker name='time-picker' />
+      <Textarea name='text-area' />
+      <Switch name='switch' />
+      <DatePicker name='date-picker' />
+      <Checkbox name='checkbox' />
+
       <Space>
         <Button htmlType='submit' type='primary' loading={form.formState.isSubmitting}>
           Submit

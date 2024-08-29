@@ -19,7 +19,7 @@ export type TimePickerProps<V extends FieldValues> = Omit<AntdTimePickerProps, '
   };
 
 const TimePicker = forwardRef<any, any>(({ value, format, showTime, minDate, maxDate, onChange, ...props }, ref) => {
-  format = format ?? props.showSecond ? 'HH:mm:ss' : 'HH:mm';
+  format = (format ?? props.showSecond) ? 'HH:mm:ss' : 'HH:mm';
 
   const handleChange = useCallback((date: Dayjs) => onChange(date.toDate()), [onChange]);
 

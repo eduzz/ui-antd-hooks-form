@@ -19,9 +19,7 @@ const Form = <T extends FieldValues>({ context, onSubmit, ...rest }: FormProps<T
     async (data: any) => {
       try {
         await onSubmit(data);
-      } catch (err) {
-        /// Ignorado
-      }
+      } catch {}
     },
     [onSubmit]
   );
